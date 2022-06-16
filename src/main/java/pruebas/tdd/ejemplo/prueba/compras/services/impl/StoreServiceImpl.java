@@ -1,4 +1,4 @@
-package pruebas.tdd.ejemplo.prueba.services.impl;
+package pruebas.tdd.ejemplo.prueba.compras.services.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import pruebas.tdd.ejemplo.prueba.compras.dto.StoreDto;
 import pruebas.tdd.ejemplo.prueba.compras.entity.Store;
 import pruebas.tdd.ejemplo.prueba.compras.repository.StoreRepository;
-import pruebas.tdd.ejemplo.prueba.services.StoreService;
+import pruebas.tdd.ejemplo.prueba.compras.services.StoreService;
 
 @Service
 public class StoreServiceImpl implements StoreService {

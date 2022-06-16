@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pruebas.tdd.ejemplo.prueba.compras.dto.ResponseDto;
 import pruebas.tdd.ejemplo.prueba.compras.dto.StoreDto;
-import pruebas.tdd.ejemplo.prueba.services.StoreService;
+import pruebas.tdd.ejemplo.prueba.compras.services.StoreService;
 
 @RestController
 @RequestMapping("/store")
