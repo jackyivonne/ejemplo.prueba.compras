@@ -27,10 +27,13 @@ public class Store {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "store_id")
 	private Long id;
+	@Column(nullable = false, unique = true)
 	private String name;
-	private String category;	
+	@Column(nullable = false)
+	private String category;
+	@Column(nullable = false)
 	private String owner;
-	
+
 	@OneToMany(mappedBy = "storeOwner", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private List<StoreStock> products;
 

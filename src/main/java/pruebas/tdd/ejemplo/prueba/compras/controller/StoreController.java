@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import pruebas.tdd.ejemplo.prueba.compras.dto.ResponseDto;
 import pruebas.tdd.ejemplo.prueba.compras.dto.StoreDto;
+import pruebas.tdd.ejemplo.prueba.compras.exceptions.StoreException;
 import pruebas.tdd.ejemplo.prueba.compras.services.StoreService;
 
 @RestController
@@ -19,9 +20,14 @@ public class StoreController {
 	@Autowired
 	private StoreService storeService;
 
-	@PostMapping()
+	@PostMapping("")
 	public ResponseEntity<ResponseDto> createStore(@RequestBody StoreDto store) {
-		return new ResponseEntity(storeService.saveStore(store), HttpStatus.OK);
+		try {
+			return new ResponseEntity(storeService.saveStore(store), HttpStatus.OK);
+		} catch (StoreException e) {
+			// TODO Auto-generated catch block
+			return new ResponseEntity(HttpStatus.BAD_REQUEST);
+		}
 	}
 
 }
