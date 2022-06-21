@@ -6,4 +6,6 @@ import pruebas.tdd.ejemplo.prueba.compras.entity.Store;
 
 public interface StoreRepository extends JpaRepository<Store, Long> {
 
+	Store findByName(String name);
+
 }
