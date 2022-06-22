@@ -1,0 +1,27 @@
+2022-06-21 18:45:27,385 INFO [main] org.springframework.boot.StartupInfoLogger : Starting Application using Java 17.0.1 on JACQUELINE with PID 37992 (C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras\bin\main started by jacky in C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras)
+2022-06-21 18:45:27,395 INFO [main] org.springframework.boot.SpringApplication : No active profile set, falling back to 1 default profile: "default"
+2022-06-21 18:45:31,520 INFO [main] org.springframework.boot.StartupInfoLogger : Started Application in 5.136 seconds (JVM running for 7.162)
+2022-06-21 18:45:38,629 INFO [http-nio-8087-exec-1] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log de Controller 
+2022-06-21 18:45:56,629 INFO [http-nio-8087-exec-3] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log deteteStoreById'
+2022-06-21 18:47:49,229 INFO [main] org.springframework.boot.StartupInfoLogger : Starting Application using Java 17.0.1 on JACQUELINE with PID 34200 (C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras\bin\main started by jacky in C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras)
+2022-06-21 18:47:49,234 INFO [main] org.springframework.boot.SpringApplication : No active profile set, falling back to 1 default profile: "default"
+2022-06-21 18:47:53,103 INFO [main] org.springframework.boot.StartupInfoLogger : Started Application in 4.368 seconds (JVM running for 5.262)
+2022-06-21 18:48:02,612 INFO [http-nio-8087-exec-2] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log de Controller 
+2022-06-21 18:48:26,919 INFO [http-nio-8087-exec-4] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log de Controller 
+2022-06-21 18:48:46,874 INFO [main] org.springframework.boot.StartupInfoLogger : Starting Application using Java 17.0.1 on JACQUELINE with PID 36588 (C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras\bin\main started by jacky in C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras)
+2022-06-21 18:48:46,878 INFO [main] org.springframework.boot.SpringApplication : No active profile set, falling back to 1 default profile: "default"
+2022-06-21 18:49:13,853 INFO [http-nio-8087-exec-6] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log de Controller 
+2022-06-21 18:49:36,829 INFO [main] org.springframework.boot.StartupInfoLogger : Starting Application using Java 17.0.1 on JACQUELINE with PID 36540 (C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras\bin\main started by jacky in C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras)
+2022-06-21 18:49:36,835 INFO [main] org.springframework.boot.SpringApplication : No active profile set, falling back to 1 default profile: "default"
+2022-06-21 18:52:34,149 INFO [main] org.springframework.boot.StartupInfoLogger : Starting Application using Java 17.0.1 on JACQUELINE with PID 7488 (C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras\bin\main started by jacky in C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras)
+2022-06-21 18:52:34,153 INFO [main] org.springframework.boot.SpringApplication : No active profile set, falling back to 1 default profile: "default"
+2022-06-21 18:52:36,997 INFO [main] org.springframework.boot.StartupInfoLogger : Started Application in 3.21 seconds (JVM running for 4.097)
+2022-06-21 18:52:45,679 INFO [http-nio-8087-exec-3] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log de Controller 
+2022-06-21 18:53:11,223 INFO [http-nio-8087-exec-2] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log deteteStoreById'
+2022-06-21 18:55:10,700 INFO [main] org.springframework.boot.StartupInfoLogger : Starting Application using Java 17.0.1 on JACQUELINE with PID 39380 (C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras\bin\main started by jacky in C:\JACQUELINE\CURSOS\Spring5\workspace\ejemplo.prueba.compras)
+2022-06-21 18:55:10,706 INFO [main] org.springframework.boot.SpringApplication : No active profile set, falling back to 1 default profile: "default"
+2022-06-21 18:55:13,928 INFO [main] org.springframework.boot.StartupInfoLogger : Started Application in 3.707 seconds (JVM running for 4.944)
+2022-06-21 18:55:17,877 INFO [http-nio-8087-exec-2] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log de Controller 
+2022-06-21 18:55:20,699 INFO [http-nio-8087-exec-3] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log deteteStoreById'
+2022-06-21 19:07:29,633 INFO [http-nio-8087-exec-6] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log de Controller 
+2022-06-21 19:07:43,818 INFO [http-nio-8087-exec-7] pruebas.tdd.ejemplo.prueba.compras.controller.StoreController : Log updateStoreById'

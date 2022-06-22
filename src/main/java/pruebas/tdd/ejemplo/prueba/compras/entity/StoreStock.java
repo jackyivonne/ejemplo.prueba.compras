@@ -25,9 +25,8 @@ public class StoreStock {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "store_stock_id")
 	private Long id;
-	private Integer stock;	
 	private Double soldPrice;
-	
+
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "product_id", nullable = false)
 	private Product productOwner;
@@ -35,5 +34,7 @@ public class StoreStock {
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "store_id", nullable = false)
 	private Store storeOwner;
+
+	private Integer stock;
 
 }

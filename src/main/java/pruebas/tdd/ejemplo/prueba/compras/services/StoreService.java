@@ -14,4 +14,6 @@ public interface StoreService {
 	Boolean updateStore(StoreDto storeDto, Long storeId) throws StoreNotFoundException;
 
 	ResponseDto deleteStore(Long storeId) throws StoreNotFoundException;
+	
+	
 }

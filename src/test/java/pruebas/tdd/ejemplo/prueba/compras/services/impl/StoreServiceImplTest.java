@@ -14,6 +14,7 @@ import pruebas.tdd.ejemplo.prueba.compras.dto.ResponseDto;
 import pruebas.tdd.ejemplo.prueba.compras.dto.StoreDto;
 import pruebas.tdd.ejemplo.prueba.compras.entity.Store;
 import pruebas.tdd.ejemplo.prueba.compras.exceptions.StoreException;
+import pruebas.tdd.ejemplo.prueba.compras.exceptions.StoreNotFoundException;
 import pruebas.tdd.ejemplo.prueba.compras.repository.StoreRepository;
 
 @ExtendWith(MockitoExtension.class)
@@ -57,6 +58,15 @@ public class StoreServiceImplTest {
 		}
 		Assert.notNull(exception, "No se produjo la exception esperada");
 
+	}
+
+	@Test
+	public void givenSearchStoreByName_whenPresentStoreRequest_thenListInformationDb()
+			throws StoreException, StoreNotFoundException {
+		String name = "Tienda de prueba";
+		Mockito.when(storeRepository.findByName(name)).thenReturn(new Store(1L, "Tienda de prueba", null, null, null));
+		StoreDto response = storeService.findStoreByName(name);
+		Assert.isTrue(response.getName().equals(name), "No exite ese nombre de Store");
 	}
 
 }
