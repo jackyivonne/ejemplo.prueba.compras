@@ -1,7 +1,5 @@
 package pruebas.tdd.ejemplo.prueba.compras.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -16,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.slf4j.Slf4j;
 import pruebas.tdd.ejemplo.prueba.compras.dto.ResponseDto;
 import pruebas.tdd.ejemplo.prueba.compras.dto.StoreDto;
 import pruebas.tdd.ejemplo.prueba.compras.exceptions.StoreException;
@@ -24,24 +23,27 @@ import pruebas.tdd.ejemplo.prueba.compras.services.StoreService;
 
 @RestController
 @RequestMapping("/store")
+@Slf4j
 public class StoreController {
 
 	@Autowired
 	private StoreService storeService;
 
-	public final static Logger LOGGER = LoggerFactory.getLogger(StoreController.class);
-	
+	// public final static Logger LOGGER =
+	// LoggerFactory.getLogger(StoreController.class);
+
 	@Value("${message.log.storeController}")
 	private String message;
 
 	@PostMapping("")
 	public ResponseEntity<ResponseDto> createStore(@RequestBody StoreDto store) {
 		try {
-			LOGGER.info(message, StoreController.class.getName());
+			// LOGGER.info(message, StoreController.class.getName());
+			log.info(message, StoreController.class.getName());
 			return new ResponseEntity(storeService.saveStore(store), HttpStatus.OK);
 
 		} catch (StoreException e) {
-			// TODO Auto-generated catch block			
+			// TODO Auto-generated catch block
 			return new ResponseEntity(HttpStatus.BAD_REQUEST);
 		}
 	}
@@ -49,11 +51,11 @@ public class StoreController {
 	@GetMapping()
 	public ResponseEntity<StoreDto> searchStoreByName(@RequestHeader String storeName) {
 		try {
-			LOGGER.info(message, StoreController.class.getName());
+			log.info(message, StoreController.class.getName());
 			return new ResponseEntity(storeService.findStoreByName(storeName), HttpStatus.OK);
 		} catch (StoreNotFoundException e) {
 			// TODO Auto-generated catch block
-			LOGGER.info(message, StoreController.class.getName());
+			log.info(message, StoreController.class.getName());
 			return new ResponseEntity(e.getMessage(), HttpStatus.NOT_FOUND);
 		}
 	}
@@ -62,7 +64,7 @@ public class StoreController {
 	public ResponseEntity<StoreDto> updateStoreById(@RequestBody StoreDto storeDto, @PathVariable Long storeId) {
 
 		try {
-			LOGGER.info("Log updateStoreById'", StoreController.class.getName());
+			log.info("Log updateStoreById'", StoreController.class.getName());
 			return new ResponseEntity(storeService.updateStore(storeDto, storeId), HttpStatus.OK);
 		} catch (StoreNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -77,7 +79,7 @@ public class StoreController {
 	@DeleteMapping(path = "/{storeId}")
 	public ResponseEntity<ResponseDto> deteteStoreById(@PathVariable Long storeId) {
 		try {
-			LOGGER.info("Log deteteStoreById'", StoreController.class.getName());
+			log.info("Log deteteStoreById'", StoreController.class.getName());
 			return new ResponseEntity(storeService.deleteStore(storeId), HttpStatus.OK);
 		} catch (StoreNotFoundException e) {
 			// TODO Auto-generated catch block

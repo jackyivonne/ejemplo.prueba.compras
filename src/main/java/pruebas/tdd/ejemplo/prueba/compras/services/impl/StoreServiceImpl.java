@@ -1,12 +1,12 @@
 package pruebas.tdd.ejemplo.prueba.compras.services.impl;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import lombok.extern.slf4j.Slf4j;
 import pruebas.tdd.ejemplo.prueba.compras.dto.ResponseDto;
 import pruebas.tdd.ejemplo.prueba.compras.dto.StoreDto;
 import pruebas.tdd.ejemplo.prueba.compras.entity.Store;
@@ -16,6 +16,7 @@ import pruebas.tdd.ejemplo.prueba.compras.exceptions.StoreNotFoundException;
 import pruebas.tdd.ejemplo.prueba.compras.repository.StoreRepository;
 import pruebas.tdd.ejemplo.prueba.compras.services.StoreService;
 
+@Slf4j
 @Service
 public class StoreServiceImpl implements StoreService {
 
@@ -29,8 +30,9 @@ public class StoreServiceImpl implements StoreService {
 		storeBdd.setName(storeDto.getName());
 		storeBdd.setOwner(storeDto.getOwner());
 		storeBdd.setCategory(storeDto.getCategory());
-		try {
+		try {			
 			Store saveStore = storeRepository.save(storeBdd);
+			log.info("Ingresa y guarda el store" + saveStore.getId());
 			return new ResponseDto("Stored saved:" + saveStore.getId());
 		} catch (Exception e) {
 			// TODO: handle exception
@@ -75,12 +77,12 @@ public class StoreServiceImpl implements StoreService {
 		// TODO Auto-generated method stub
 		Optional<Store> optionalStore = storeRepository.findById(storeId);
 		if (optionalStore.isPresent()) {
-			 Store store= optionalStore.get();
-			 List<StoreStock> lista=store.getProducts();
+			Store store = optionalStore.get();
+			List<StoreStock> lista = store.getProducts();
 			// if(!Objects.isNull(lista) ) {
-			 if(!lista.isEmpty()) {
-				 return new ResponseDto("No se puede eliminar porque existen productos: " + storeId);
-			 }
+			if (!lista.isEmpty()) {
+				return new ResponseDto("No se puede eliminar porque existen productos: " + storeId);
+			}
 			storeRepository.deleteById(storeId);
 			return new ResponseDto("Se ha eliminado el store id: " + storeId);
 		} else

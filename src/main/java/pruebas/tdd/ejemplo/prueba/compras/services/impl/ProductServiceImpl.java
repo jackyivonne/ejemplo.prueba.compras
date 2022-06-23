@@ -3,11 +3,15 @@ package pruebas.tdd.ejemplo.prueba.compras.services.impl;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import lombok.extern.slf4j.Slf4j;
+import pruebas.tdd.ejemplo.prueba.compras.configuration.MessageProperties;
 import pruebas.tdd.ejemplo.prueba.compras.entity.Product;
 import pruebas.tdd.ejemplo.prueba.compras.entity.ProductWs;
 import pruebas.tdd.ejemplo.prueba.compras.entity.ResponseWs;
@@ -19,6 +23,7 @@ import pruebas.tdd.ejemplo.prueba.compras.repository.StoreRepository;
 import pruebas.tdd.ejemplo.prueba.compras.repository.StoreStockRepository;
 import pruebas.tdd.ejemplo.prueba.compras.services.ProductService;
 
+@Slf4j
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -30,8 +35,13 @@ public class ProductServiceImpl implements ProductService {
 
 	@Autowired
 	private StoreStockRepository storeStockRepository;
-
+	
+	@Autowired
+	MessageProperties properties;
+	
+		
 	@Override
+	@Transactional
 	public void loadProductsFromWS(Long storeId) throws StoreNotFoundException {
 		// TODO Auto-generated method stub
 
@@ -40,7 +50,7 @@ public class ProductServiceImpl implements ProductService {
 
 		// Consumo el Rest
 		RestTemplate restTemplate = new RestTemplate();
-		String baseUrl = "http://demo2595538.mockable.io/products";
+		String baseUrl = properties.getUrl();
 		ResponseEntity<ResponseWs> response = restTemplate.getForEntity(baseUrl, ResponseWs.class);
 
 		// Pongo los Productos del WS en la lista
@@ -60,8 +70,8 @@ public class ProductServiceImpl implements ProductService {
 				.stream().map(product -> new StoreStock(null, product.getPrice(),
 						productRepository.findByCode(product.getCod()), store, product.getStock()))
 				.collect(Collectors.toList());
-		
-       //Llena en la tabla StoreStock
+
+		// Llena en la tabla StoreStock
 		List<StoreStock> stockToUpdate = productsInDb.stream().map(stock -> {
 			StoreStock productStok = storeStockRepository.findStockByStoreAndproduct(store.getId(),
 					stock.getProductOwner().getId());
@@ -74,6 +84,7 @@ public class ProductServiceImpl implements ProductService {
 		}).collect(Collectors.toList());
 
 		storeStockRepository.saveAll(stockToUpdate);
+		log.info("Log de guardado de Product");
 
 	}
 
