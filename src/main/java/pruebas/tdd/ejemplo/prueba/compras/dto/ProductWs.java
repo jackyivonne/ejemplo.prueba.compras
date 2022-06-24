@@ -1,4 +1,4 @@
-package pruebas.tdd.ejemplo.prueba.compras.entity;
+package pruebas.tdd.ejemplo.prueba.compras.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

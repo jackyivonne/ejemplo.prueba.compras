@@ -1,4 +1,4 @@
-package pruebas.tdd.ejemplo.prueba.compras.entity;
+package pruebas.tdd.ejemplo.prueba.compras.dto;
 
 import java.util.List;
 

@@ -12,9 +12,9 @@ import org.springframework.web.client.RestTemplate;
 
 import lombok.extern.slf4j.Slf4j;
 import pruebas.tdd.ejemplo.prueba.compras.configuration.MessageProperties;
+import pruebas.tdd.ejemplo.prueba.compras.dto.ProductWs;
+import pruebas.tdd.ejemplo.prueba.compras.dto.ResponseWs;
 import pruebas.tdd.ejemplo.prueba.compras.entity.Product;
-import pruebas.tdd.ejemplo.prueba.compras.entity.ProductWs;
-import pruebas.tdd.ejemplo.prueba.compras.entity.ResponseWs;
 import pruebas.tdd.ejemplo.prueba.compras.entity.Store;
 import pruebas.tdd.ejemplo.prueba.compras.entity.StoreStock;
 import pruebas.tdd.ejemplo.prueba.compras.exceptions.StoreNotFoundException;
